@@ -24,6 +24,7 @@
         position: absolute;
         bottom: 3vh;
         right: 3vw;
+        font-size: 9vh;
         text-align: right;
     }
 
