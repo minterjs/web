@@ -1,5 +1,6 @@
 <template>
     <div class="landing">
+        <div class="rotate">please rotate your device</div>
         <div class="container">
             <div>
                 <logo/>
@@ -84,5 +85,16 @@
 
     .links {
         padding-top: 15px;
+    }
+    .rotate {
+        display: none;
+    }
+    @media all and (orientation:portrait) {
+        .rotate {
+            display: block;
+            font-size: 30px;
+            width: 100%;
+            text-align: center;
+        }
     }
 </style>
