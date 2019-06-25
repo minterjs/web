@@ -29,6 +29,12 @@
                 <h2>На котиков</h2>
                 <p>На полезные дела, на пиво, на ДР (07.07) и прочее)</p>
             </div>
+            <div class="col-md-12">
+                <a href="//www.liveinternet.ru/click" target="_blank">
+                    <img src="//counter.yadro.ru/hit?t50.15;r" alt="" title="LiveInternet" border="0" width="31"
+                         height="31"/>
+                </a>
+            </div>
         </div>
     </div>
 </template>
