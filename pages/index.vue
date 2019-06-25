@@ -51,6 +51,9 @@
     import mazda6 from '~/components/mazda6.vue';
 
     export default {
+        head: {
+            title: 'minterjs.org',
+        },
         components: {
             Logo,
             QRCodeComponent,
