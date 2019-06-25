@@ -41,6 +41,11 @@
 
     export default {
         name: "Addr",
+        head() {
+            return {
+                title: 'MINTERCAT Explorer: ' + this.addr + ' | Minter котики'
+            }
+        },
         async asyncData({params}) {
             return {
                 addr: params.addr,
