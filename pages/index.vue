@@ -20,6 +20,10 @@
                             class="button--green"
                     >MAZDA6PLS</a>
                     <a
+                            href="/mintercat"
+                            class="button--green"
+                    >MINTERCAT</a>
+                    <a
                             href="https://github.com/minterjs"
                             class="button--grey"
                     >GitHub</a>
