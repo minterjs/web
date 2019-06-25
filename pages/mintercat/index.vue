@@ -77,6 +77,10 @@
         cursor: pointer;
     }
 
+    input {
+        min-width: 50%;
+    }
+
     .qr {
         min-width: 100%;
     }
