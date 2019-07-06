@@ -7,7 +7,7 @@
         <p>Перебрано: {{attempts}}</p>
         <p>{{current.address}}</p>
         <p>{{current.mnemonic}}</p>
-        <p>Донейт на развитие и оптимизацию: Mx00707ee371f0fdd7063de27b9117c42bc47c0abf/p>
+        <p>Донейт на развитие и оптимизацию: Mx00707ee371f0fdd7063de27b9117c42bc47c0abf</p>
     </div>
 </template>
 
