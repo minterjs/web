@@ -7,7 +7,8 @@
         <p>Перебрано: {{attempts}}</p>
         <p>{{current.address}}</p>
         <p>{{current.mnemonic}}</p>
-        <p>Донейт на развитие и оптимизацию: Mx00707ee371f0fdd7063de27b9117c42bc47c0abf</p>
+        <p><b>PRIVACY POLICY:</b><br /> Все вычисления производятся на стороне клиента без взаимодействия с сервером. Сервис предоставляется <b>беплатно</b>, но если он был Вам полезен - отправьте <b>100 BIP</b> или любую другую суммму на адрес: <b>Mx00707ee371f0fdd7063de27b9117c42bc47c0abf</b></p>
+        <p>До моей 30ки осталось: {{ms}} мс</p>
     </div>
 </template>
 
@@ -25,27 +26,38 @@ export default {
             attempts: 0,
             enabled: false,
             current: {},
+            ms: 0,
         }},
         methods: {
             run() {
                 this.enabled = !this.enabled;
                 this.attempts = 0;
-            }
+            },
+            count() {
+                this.ms = new Date('07-07-2019').getTime() - new Date().getTime();
+            },
         },
         mounted() {
+
             setInterval(() => {
+                let attempts = this.attempts;
+                let c = this.current;
+                for (let i = 0; i < 30; i++){
                         if(this.enabled){
-                            this.attempts++;
+			    attempts++;
                             const wallet = generateWallet();
-                            const c = {
+                            c = {
                                     address: wallet.getAddressString(),
                                     mnemonic: wallet.getMnemonic(),
                             };
-                            this.current = c;
                             if(c.address.split(this.filter). length > 1){
                                 this.enabled = false;
                             }
                         }
+                }
+                this.attempts = attempts;
+                this.current = c;
+                this.count();
             }, 1);
         }
 }

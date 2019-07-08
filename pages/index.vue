@@ -1,7 +1,7 @@
 <template>
     <div class="landing">
         <div class="rotate">please rotate your device</div>
-        <div class="container">
+        <div class="container-x">
             <div>
                 <logo/>
                 <h1 class="title">
@@ -31,15 +31,21 @@
                             href="http://teleg.run/MinterJSFeed"
                             class="button--grey"
                     >Telegram</a>
+                    <br />
+                    <br />
+                    <a href="/prettybip"class="button--green">Создать красивый адрес Minter</a>
                 </div>
             </div>
         </div>
         <a name="qr"/>
-        <div class="container">
+        <div class="container-x">
             <q-r-code-component></q-r-code-component>
         </div>
+        <div class="container-x">
+            <h2 class='subtitle'>До моей 30ки осталось: {{ms}}</h2>
+        </div>
         <a name="mazda6"/>
-        <div class="container">
+        <div class="container-x">
             <mazda6></mazda6>
         </div>
     </div>
@@ -58,12 +64,25 @@
             Logo,
             QRCodeComponent,
             mazda6,
+        },
+        methods: {
+            count() {
+                this.ms = new Date('07-07-2019').getTime() - new Date().getTime();
+            },
+        },
+        mounted() {
+            setInterval(() => {this.count()}, 1);
+        },
+        data(){
+            return {
+                ms: 0,
+            };
         }
     }
 </script>
 
 <style>
-    .container {
+    .container-x {
         margin: 0 auto;
         min-height: 100vh;
         display: flex;
