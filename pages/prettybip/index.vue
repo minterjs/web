@@ -9,6 +9,8 @@
         <p>Перебрано: {{attempts}}</p>
         <p>{{current.address}}</p>
         <p>{{current.mnemonic}}</p>
+      <p v-if="enabled"><b>STATUS:</b><br/>Процесс запущен. Девайс может подвисать. Процесс может занять какое-то время.
+      </p>
       <p><b>PRIVACY POLICY:</b><br/> Все вычисления производятся на стороне клиента без взаимодействия с сервером.</p>
       <p><b>ПОДДЕРЖАТЬ ПРОЕКТ:</b><br/>
         В целях повышенной безопасности сервис предоставляется <b>бесплатно</b>, но если он был Вам полезен - отправьте
@@ -48,7 +50,7 @@ export default {
                 let attempts = this.attempts;
                 let c = this.current;
                 let inTheEnd = this.inTheEnd;
-                for (let i = 0; i < 30; i++){
+                for (let i = 0; i < 100; i++) {
                         if(this.enabled){
 			    attempts++;
                             const wallet = generateWallet();
