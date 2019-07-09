@@ -5,7 +5,7 @@
       <input id="filter" v-model="filter"/>
         <button v-on:click="run">{{this.enabled && 'Остановить' || 'Начать'}}</button>
       <label for="end">Окончание</label>
-      <input id="end" type="checkbox" model="inTheEnd"/>
+      <input id="end" type="checkbox" v-model="inTheEnd"/>
         <p>Перебрано: {{attempts}}</p>
         <p>{{current.address}}</p>
         <p>{{current.mnemonic}}</p>
@@ -56,7 +56,7 @@ export default {
                                     address: wallet.getAddressString(),
                                     mnemonic: wallet.getMnemonic(),
                             };
-                            if (inTheEnd && ((c.address + ' ').split(this.filter + ' ').length > 1) || (c.address.split(this.filter).length > 1)) {
+                            if (inTheEnd && ((`${c.address}ZZ_`).split(`${this.filter}ZZ`).length > 1) || !inTheEnd && (c.address.split(this.filter).length > 1)) {
                                 this.enabled = false;
                             }
                         }
