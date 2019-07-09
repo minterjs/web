@@ -2,8 +2,10 @@
     <div class='container'>
         <h1>Генератор красивых адресов Minter</h1>
         <label for="filter">Фильтр</label>
-        <input name="filter" v-model="filter" />
+      <input id="filter" v-model="filter"/>
         <button v-on:click="run">{{this.enabled && 'Остановить' || 'Начать'}}</button>
+      <label for="end">Окончание</label>
+      <input id="end" type="checkbox" model="inTheEnd"/>
         <p>Перебрано: {{attempts}}</p>
         <p>{{current.address}}</p>
         <p>{{current.mnemonic}}</p>
@@ -29,6 +31,7 @@ export default {
             enabled: false,
             current: {},
             ms: 0,
+            inTheEnd: false,
         }},
         methods: {
             run() {
@@ -44,6 +47,7 @@ export default {
             setInterval(() => {
                 let attempts = this.attempts;
                 let c = this.current;
+                let inTheEnd = this.inTheEnd;
                 for (let i = 0; i < 30; i++){
                         if(this.enabled){
 			    attempts++;
@@ -52,7 +56,7 @@ export default {
                                     address: wallet.getAddressString(),
                                     mnemonic: wallet.getMnemonic(),
                             };
-                            if(c.address.split(this.filter). length > 1){
+                            if (inTheEnd && ((c.address + ' ').split(this.filter + ' ').length > 1) || (c.address.split(this.filter).length > 1)) {
                                 this.enabled = false;
                             }
                         }
